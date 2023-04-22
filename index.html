@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Cálculo de IMC</h1>
+        <form action="" method="get" onsubmit="event.preventDefault(); calcular()">
+            <p>
+                <label for="altura">Digite sua altura</label>
+                <input type="number" name="altura" id="altura" step="0.01">
+            </p>
+            <p>
+                <label for="peso">Digite seu peso</label>
+                <input type="number" name="peso" id="peso">
+            </p>
+            <p>
+                <input type="submit" value="Calcular">
+                <input type="reset" value="Resetar">
+            </p>
+        </form>
+    </main>
+    <section>
+        <p id="msg">O resultado vai aparecer aqui...</p>
+    </section>
+
+<script>
+    function calcular() {
+        let alt = Number(altura.value)
+        let pes = Number(peso.value)
+        let imc = pes / (alt * alt)
+        if (imc < 18) {
+            msg.innerHTML = `Seu IMC é <strong>${imc.toFixed(1)}</strong> e seu status é <strong>Magreza</strong>`
+        } 
+        
+        else if (imc > 18.4 && imc < 25)
+        {
+            msg.innerHTML = `Seu IMC é <strong>${imc.toFixed(1)}</strong> e seu status é <strong>Peso Normal</strong>`
+        }
+
+        else if (imc > 24.9 && imc < 30)
+        {
+            msg.innerHTML = `Seu IMC é <strong>${imc.toFixed(1)}</strong> e seu status é <strong>Acima do Peso</strong>`
+        }
+
+        else if (imc >= 30 && imc <= 40)
+        {
+            msg.innerHTML = `Seu IMC é <strong>${imc.toFixed(1)}</strong> e seu status é <strong>Obesidade</strong>`
+        }
+
+        else 
+        {
+            msg.innerHTML = `Seu IMC é <strong>${imc.toFixed(1)}</strong> e seu status é <strong>Obesidade Mórbida</strong>`
+            
+        }
+    }
+
+
+</script>
+</body>
+</html>
